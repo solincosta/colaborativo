@@ -2,6 +2,10 @@ body{
     background-color: aqua;
 }
 
+header{
+    background-color: blue;
+}
+
 img{
     width: 400px;
     height: 200px;
@@ -9,4 +13,11 @@ img{
 
 p{
     line-height: 3rem;
+}
+
+div{
+    border: red solid 2px;
+    width: 300px;
+    height: 400px;
+    background-color: blueviolet;
 }
