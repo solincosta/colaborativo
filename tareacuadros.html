@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 10px 30px;
+        }
+
+        .cuadro-amarillo {
+            background-color: yellow;
+            color: black;
+            width: 150px;
+            height: 150px;
+            padding: 15px 10px 100px;
+            border: #3560f0 solid 2px;
+            margin: 0 0 20px 0;
+        }
+
+        .cuadro-verde {
+            background-color: #B5E61D;
+            width: 70%;
+            height: 80px;
+            padding: 20px 200px;
+            border: #A349A4 5px solid;
+        }
+
+        .cuadro-padre, .otro-padre{
+            display: flex;
+            flex-direction: row;
+            border: black 2px solid;
+            margin: 20px;
+            width: fit-content;
+        }
+
+        .cuadros-normales{
+            background-color: blue;
+            color: white;
+            width: 80px;
+            height: 80px;
+            border: red 3px solid;
+            margin: 0 0 0 20px;
+        }
+
+        .ultimo-cuadro{
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cuadro-padre">
+        <div class="cuadro-amarillo">
+            AMARILLO
+        </div>
+        <div class="cuadro-verde">
+            VERDE
+        </div>
+    </div>
+
+    <div class="otro-padre">
+        <div class="cuadros-normales">1</div>
+        <div class="cuadros-normales">2</div>
+        <div class="cuadros-normales">3</div>
+        <div class="cuadros-normales ultimo-cuadro">4</div>
+    </div>
+</body>
+
+</html>
