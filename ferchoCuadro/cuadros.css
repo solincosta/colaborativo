@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.padre{
+    display: flex;
+    flex-direction: row;
+    border: 2px purple solid;
+}
+.hijos1, .hijos2, .hijos3{
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    margin: 20px;
+}
+.hijos2{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    padding-top: 15px;
+
+}
