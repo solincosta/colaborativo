@@ -1,0 +1,24 @@
+
+.padre{
+    border: black solid 2px;
+    display: flex;
+    height: 200px;
+    width: 400px;
+    
+    
+
+}
+
+.cuadro{
+    flex-grow: 1;
+
+    
+    background-color: blue;
+    border: red solid 2px;
+    color: white;
+    
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.padre {
+    height: 300px;
+    width: 100%;
+    border: black solid 2px;
+    display: flex;
+    flex-direction: row;
+}
+
+.cuadro {
+    /* height: 80px; */
+    /* width: 80px; */
+    height: 100%;
+    width: fit-content;
+    background-color: aqua;
+    border: red solid 2px;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.normal{
+    flex-grow: 1;
+}
+
+.doble{
+    flex-grow: 2;
+}
+
+.triple{
+    flex-grow: 3;
+}
+
+.ferrari{
+    flex-grow: 1;
+    background-image: url("img/ferrari.png");
+    background-size: cover;
+    background-position: center center;
+}
+
+.lamborghini{
+    flex-grow: 3;
+    background-image: url("img/lamborghini.png");
+    background-size: cover;
+    background-position: center center;
+}
+.porsche{
+    flex-grow: 1;
+    background-image: url("img/porsche.png");
+    background-size: cover;
+    background-position: center center;
+}
+
+
+
+.caja-padre{
+    height: 80px;
+    background-color: burlywood;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.opcion{
+    background-color: black;
+    color: azure;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.banner{
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.galeria{
+
+    height: 300px;
+    display: flex;
+    gap: 1rem;
+    width: 80%;
+    margin: 1rem 10%;
+}
+
+.carro{
+
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5% 5% 0 0;
+}
+
+.imagen-carro{
+
+    height: 80%;
+}
+
+.nombre-carro{
+
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: burlywood;
+    font-size: 1.5rem;
+}
+
+
