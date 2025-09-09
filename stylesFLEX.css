@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.padre{
+    background-color: aqua;
+    border: 2px solid black;
+
+    width: 70%;
+    height: 400px;
+
+    display: flex;
+    flex-direction: row;
+
+    
+    
+}
+
+.cuadro{
+    background-color: blue;
+    border: white 2px solid;
+    width: 80px;
+    height: 80px;
+    color: azure;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.normal{
+    flex-grow: 1;
+}
+
+.doble{
+    flex-grow: 2;
+}
+
+.cuadruple{
+    flex-grow: 4;
+}

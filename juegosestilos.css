@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    background-color: black;
+    color: white;
+    height: 90px;
+    display: flex;
+    align-items: center;
+}
+
+.menu{
+    background-color: #F9C30D;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.item-menu{
+    list-style: none;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    font-family: 'GROBOLD', sans-serif;
+}
+
+.item-menu:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.logo{
+    height: 70%;
+    padding: 0 3.5rem;
+    width: 20%;
+}
+
+.contenedor{
+
+    height: 500px;
+    width: 90%;
+    margin: 3rem 5%;
+    display: flex;
+    gap: 1rem;
+}
+
+.banner-grande{
+    width: 75%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+
+.columna-imagenes{
+    width: 25%;
+    display: flex;
+    gap: 0.8rem;
+    flex-direction: column;
+}
+
+.cuadros{
+    flex-grow: 1;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    /* background-image: url("imagenes/ps4.jpg");
+    background-position: center center;
+    background-size: cover; */
+}
+
+.fondo-play-5{
+    background-image: url("imagenes/ps5.jpg");
+    background-position: center center;
+    background-size: cover; 
+}
+
+.fondo-play-4{
+    background-image: url("imagenes/ps4.jpg");
+    background-position: center center;
+    background-size: cover; 
+}
+
+.fondo-switch{
+    background-image: url("imagenes/switch-2.jpg");
+    background-position: center center;
+    background-size: cover; 
+}
+
+.fondo-360{
+    background-image: url("imagenes/Consola-Xbox-One.png");
+    background-position: center center;
+    background-size: cover; 
+}
+
+.imagen-col{
+    height: 100%;
+    width: 100%;
+}
+
+.imagen-grande{
+    height: 100%;
+    width: 100%;
+}
