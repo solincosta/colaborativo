@@ -51,6 +51,20 @@
             width: 100%;
         }
 
+        .padre-gris {
+            display: flex;
+            width: 100%;
+            height: 100px;
+            margin: 1.5rem 0;
+            gap: 5px;
+        }
+
+        .cuadro-gris {
+            background-color: #E3E3E3;
+            width: 100%;
+            height: 100%;
+        }
+
 
         @media (max-width: 768px) {
 
@@ -80,6 +94,17 @@
                 height: 200px;
                 gap: 3px;
             }
+
+            .padre-gris {
+                flex-wrap: wrap;
+            }
+
+            
+            .cuadro-gris {
+                background-color: #E3E3E3;
+                width: 49%;
+                height: 50%;
+            }
         }
 
         @media (max-width: 320px) {
@@ -95,6 +120,11 @@
 
             .padre-cuadros-azul {
                 height: 300px;
+            }
+
+            .padre-gris {
+                gap: 0;
+                height: 80px;
             }
         }
     </style>
@@ -115,6 +145,13 @@
         <div class="cuadro-azul"></div>
         <div class="cuadro-azul"></div>
         <div class="cuadro-azul"></div>
+    </div>
+
+    <div class="padre-gris">
+        <div class="cuadro-gris"></div>
+        <div class="cuadro-gris"></div>
+        <div class="cuadro-gris"></div>
+        <div class="cuadro-gris"></div>
     </div>
 
 </body>
