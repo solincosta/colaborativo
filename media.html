@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: aqua;
+            color: black;
+            margin: 0 1.5rem;
+        }
+
+        .padre-cuadros-naranjas {
+            display: flex;
+            height: 60px;
+            gap: 10px;
+        }
+
+        .cuadro-naranja {
+            height: 100%;
+            width: 100%;
+            background-color: #FFA437;
+
+        }
+
+        .cuadro-verde {
+            background-color: rgb(218, 236, 0);
+            height: 200px;
+            margin: 1.5rem 0;
+        }
+
+        .padre-cuadros-azul {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            height: 180px;
+
+        }
+
+        .cuadro-azul {
+            background-color: #4A89D0;
+            height: 100%;
+            width: 100%;
+        }
+
+
+        @media (max-width: 768px) {
+
+            body {
+
+                margin: 10px;
+            }
+
+            /* body {
+                background-color: blue;
+                color: white;
+            } */
+            /* AQUI SOLO VAN LOS CAMBIOS */
+            .padre-cuadros-naranjas {
+                flex-direction: column;
+                height: 120px;
+                gap: 3px;
+            }
+
+            .cuadro-verde {
+                height: 150px;
+                margin: 10px 0;
+            }
+
+            .padre-cuadros-azul {
+                flex-direction: column;
+                height: 200px;
+                gap: 3px;
+            }
+        }
+
+        @media (max-width: 320px) {
+
+            /* body {
+                background-color: green;
+                color: black;
+            } */
+
+            .cuadro-verde {
+                height: 80px;
+            }
+
+            .padre-cuadros-azul {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h1>HOLA MUNDO ESTO ES UN CONTENIDO DE MEDIA QUERIES</h1> -->
+    <div class="padre-cuadros-naranjas">
+        <div class="cuadro-naranja"></div>
+        <div class="cuadro-naranja"></div>
+    </div>
+
+    <div class="cuadro-verde">
+
+    </div>
+
+    <div class="padre-cuadros-azul">
+        <div class="cuadro-azul"></div>
+        <div class="cuadro-azul"></div>
+        <div class="cuadro-azul"></div>
+    </div>
+
+</body>
+
+</html>
