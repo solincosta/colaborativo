@@ -1,9 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.header{
+.header {
     background-color: black;
     color: white;
     height: 90px;
@@ -11,7 +12,7 @@
     align-items: center;
 }
 
-.menu{
+.menu {
     background-color: #F9C30D;
     height: 50px;
     display: flex;
@@ -20,29 +21,30 @@
 
 }
 
-.item-menu{
+.item-menu {
     list-style: none;
     height: 100%;
     display: flex;
+    gap: 10px;
     justify-content: center;
     align-items: center;
     padding: 0 1rem;
     font-family: 'GROBOLD', sans-serif;
 }
 
-.item-menu:hover{
+.item-menu:hover {
     background-color: black;
     color: white;
     cursor: pointer;
 }
 
-.logo{
-    height: 70%;
-    padding: 0 3.5rem;
-    width: 20%;
+.logo {
+    height: 60%;
+    margin: 1rem 3.5rem;
+    /* width: 20%; */
 }
 
-.contenedor{
+.contenedor-juegos {
 
     height: 500px;
     width: 90%;
@@ -51,20 +53,20 @@
     gap: 1rem;
 }
 
-.banner-grande{
+.banner-grande {
     width: 75%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 }
 
-.columna-imagenes{
+.columna-imagenes {
     width: 25%;
     display: flex;
     gap: 0.8rem;
     flex-direction: column;
 }
 
-.cuadros{
+.cuadros {
     flex-grow: 1;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
@@ -73,36 +75,153 @@
     background-size: cover; */
 }
 
-.fondo-play-5{
+.fondo-play-5 {
     background-image: url("imagenes/ps5.jpg");
     background-position: center center;
-    background-size: cover; 
+    background-size: cover;
 }
 
-.fondo-play-4{
+.fondo-play-4 {
     background-image: url("imagenes/ps4.jpg");
     background-position: center center;
-    background-size: cover; 
+    background-size: cover;
 }
 
-.fondo-switch{
+.fondo-switch {
     background-image: url("imagenes/switch-2.jpg");
     background-position: center center;
-    background-size: cover; 
+    background-size: cover;
 }
 
-.fondo-360{
+.fondo-360 {
     background-image: url("imagenes/Consola-Xbox-One.png");
     background-position: center center;
-    background-size: cover; 
+    background-size: cover;
 }
 
-.imagen-col{
+.imagen-col {
     height: 100%;
     width: 100%;
 }
 
-.imagen-grande{
+.imagen-grande {
     height: 100%;
     width: 100%;
+}
+
+.contenedor {
+    height: 400px;
+    width: 80%;
+    margin: 5rem 10%;
+
+    /* TAMAÑO, COLOR, TIPO */
+    display: flex;
+    gap: 1.5rem;
+}
+
+.card {
+    border: 2px #EDEDED solid;
+    height: 100%;
+    width: 100%;
+}
+
+.imagen {
+    height: 45%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+    background-color: aqua;
+}
+
+.titulo {
+    height: 20%;
+    padding: 10px 35px;
+    text-align: center;
+}
+
+.titulo-juego {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 17px;
+    color: black;
+}
+
+.parrafo {
+    height: 20%;
+    text-align: center;
+}
+
+.texto-parrafo {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(91, 89, 89);
+    font-size: 13px;
+
+}
+
+.link {
+    text-align: center;
+}
+
+.link-acceso {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 13px;
+    color: #009938;
+    border: #009938 1px groove;
+    padding: 5px 3rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.link-acceso:hover {
+    cursor: pointer;
+    background-color: #009938;
+    color: white;
+}
+
+@media (max-width: 480px) {
+    .contenedor {
+        /* height: 400px; */
+        /* width: 80%;
+                margin: 5rem 10%; */
+        /* gap: 1.5rem; */
+        flex-direction: column;
+    }
+
+    .logo {
+        height: 70%;
+        /* padding: 1rem; */
+        width: 100%;
+    }
+
+    .menu {
+
+        height: 300px;
+        flex-direction: column;
+        justify-content: space-between;
+        /* justify-content: center;
+                align-items: center; */
+    }
+
+    .item-menu {
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+}
+
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
 }
