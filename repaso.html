@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .portugal {
+            border: 2px solid black;
+            height: 450px;
+            width: 80%;
+            margin: 3rem auto;
+            display: flex;
+            /* flex-direction: row; */
+        }
+
+        .cuadro-uno {
+            height: 100%;
+            width: 60%;
+            background-color: red;
+        }
+
+        .cuadro-dos {
+            height: 100%;
+            width: 40%;
+            background-color: green;
+        }
+
+        .peru {
+            border: 2px solid black;
+            height: 450px;
+            width: 80%;
+            margin: 3rem auto;
+            display: flex;
+            /* flex-direction: row; */
+        }
+
+        .columna-1{
+            height: 100%;
+            width: 33.3%;
+            background-color: red;
+        }
+
+        .columna-2{
+            height: 100%;
+            width: 33.4%;
+            background-color: white;
+        }
+
+        .columna-3{
+            height: 100%;
+            width: 33.3%;
+            background-color: red;
+        }
+
+        .colombia {
+            height: 450px;
+            width: 80%;
+            margin: 3rem auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fila-1{
+            height: 50%;
+            width: 100%;
+            background-color: yellow;
+        }
+
+        .fila-2{
+            height: 25%;
+            width: 100%;
+            background-color: blue;
+        }
+
+        .fila-3{
+            height: 25%;
+            width: 100%;
+            background-color: red;
+        }
+
+        .panama-grid{
+            height: 450px;
+            width: 80%;
+            margin: 3rem auto;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 50% 50%;
+            border: 2px black solid;
+        }
+
+        
+
+        .cuadro-panama2{
+            background-color: red;
+        }
+
+        .cuadro-panama3{
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="portugal">
+        <div class="cuadro-dos"></div>
+        <div class="cuadro-uno"></div>
+    </div>
+
+    <div class="peru">
+        <div class="columna-1"></div>
+        <div class="columna-2"></div>
+        <div class="columna-3"></div>
+    </div>
+
+    <div class="colombia">
+        <div class="fila-1"></div>
+        <div class="fila-2"></div>
+        <div class="fila-3"></div>
+    </div>
+
+
+    <div class="panama-grid">
+        <div class="cuadro-panama1"></div>
+        <div class="cuadro-panama2"></div>
+        <div class="cuadro-panama3"></div>
+        <div class="cuadro-panama4"></div>
+    </div>
+
+</body>
+
+</html>
