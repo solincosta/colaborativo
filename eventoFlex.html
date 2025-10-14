@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .contenedor {
+            border: solid black 2px;
+            width: 70%;
+            height: 300px;
+            margin: 3rem auto;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .cuadro {
+            height: 150px;
+            width: 150px;
+            background-color: blue;
+        }
+
+        .contenedor-botones {
+
+            width: 70%;
+            margin: 3rem auto;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+
+        .boton {
+            background: black;
+            color: azure;
+            padding: 1rem;
+        }
+
+        .enviar-final {
+            justify-content: end;
+        }
+
+        .enviar-inicio {
+            justify-content: start;
+            transition: all 1s ease-in;
+        }
+
+        .juntar-cuadros {
+            justify-content: center;
+            gap: 5px;
+            transition: all 1s ease-in;
+        }
+
+        .separar-cuadros {
+            justify-content: space-between;
+            transition: all 1s ease-in;
+        }
+    </style>
+</head>
+<div id="contenedor" class="contenedor">
+    <div class="cuadro"></div>
+    <div class="cuadro"></div>
+    <div class="cuadro"></div>
+    <div class="cuadro"></div>
+</div>
+
+
+<div class="contenedor-botones">
+    <button id="btn-final" class="boton">ENVIAR AL FINAL</button>
+    <button id="btn-inicio" class="boton">ENVIAR AL INICIO</button>
+    <button id="btn-separar" class="boton">SEPARAR CUADROS</button>
+    <button id="btn-juntar" class="boton">JUNTAR CUADROS</button>
+</div>
+
+
+<script>
+    const botonFinal = document.getElementById("btn-final");
+    const botonInicio = document.getElementById("btn-inicio");
+    const botonSeparar = document.getElementById("btn-separar");
+    const botonJuntar = document.getElementById("btn-juntar");
+
+    const contenedor = document.getElementById("contenedor");
+
+    botonFinal.addEventListener("click", function () {
+        contenedor.classList.remove("enviar-inicio");
+        contenedor.classList.remove("separar-cuadros");
+        contenedor.classList.remove("juntar-cuadros");
+        contenedor.classList.add("enviar-final");
+    });
+
+    botonInicio.addEventListener("click", function () {
+        contenedor.classList.remove("enviar-final");
+        contenedor.classList.remove("separar-cuadros");
+        contenedor.classList.remove("juntar-cuadros");
+        contenedor.classList.add("enviar-inicio");
+    });
+
+
+    botonSeparar.addEventListener("click", function () {
+        contenedor.classList.remove("enviar-final");
+        contenedor.classList.remove("juntar-cuadros");
+        contenedor.classList.remove("enviar-inicio");
+        contenedor.classList.add("separar-cuadros");
+    });
+
+    botonJuntar.addEventListener("click", function () {
+        contenedor.classList.remove("enviar-inicio");
+        contenedor.classList.remove("enviar-final");
+        contenedor.classList.remove("separar-cuadros");
+        contenedor.classList.add("juntar-cuadros");
+    });
+
+
+
+</script>
+</body>
+
+</html>

@@ -18,12 +18,9 @@
             box-sizing: border-box;
         }
 
-        body {
-            height: 400vh;
-        }
 
         .contenedor {
-            height: 300px;
+            height: 500px;
             width: 70%;
             margin: 3rem auto;
             border: 2px black solid;
@@ -37,36 +34,44 @@
 
         }
 
+        .rojo {
+            background-color: red;
+            height: 30px;
+            width: 100px;
+            position: absolute;
+            bottom: 100px;
+            left: 50px;
+            z-index: 15;
+        }
+
         .verde {
             background-color: green;
             position: absolute;
-            bottom: 0;
-            left: 200px;
-            /* z-index: 15; */
-        }
-
-        .rojo {
-            background-color: red;
-            position: absolute;
-            top: calc(50% - 50px);
-            left: calc(50% - 50px);
+            bottom: 10px;
+            left: 5%;
             z-index: 10;
+            height: 130px;
+            width: 90%;
         }
 
         .azul {
-            position: fixed;
             background-color: blue;
+            position: absolute;
             bottom: 0;
-            right: 0;
-            z-index: 20;
+            left: 0;
+            z-index: 2;
+            width: 100%;
+            height: 150px;
         }
 
         .amarillo {
             position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
             background-color: yellow;
-            bottom: 0;
-            right: 0;
-            z-index: 20;
+            z-index: 1;
         }
 
         .vuelos {
@@ -130,13 +135,13 @@
 
         }
 
-        .destino{
+        .destino {
             font-size: 20px;
             font-weight: 700;
             line-height: 26px;
         }
 
-        .info{
+        .info {
             font-size: 12px;
             font-weight: 400;
             line-height: 16px;

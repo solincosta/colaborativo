@@ -16,16 +16,23 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
 
+    <!-- ESTO ES CODIGO CSS -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings" />
 
+
+   
+
 </head>
 
-<body>
+<body id="body">
     <header class="header">
         <img class="logo" src="imagenes/logo-karmant19.png" alt="">
     </header>
-    <menu class="menu">
+    <button id="disparador" class="menu-disparador" onclick="desplegarMenu()"><span class="material-symbols-outlined">
+                settings
+            </span></button>
+    <menu id="menu_id" class="menu">
         <li class="item-menu"><span class="material-symbols-outlined">
                 settings
             </span> Home </li>
@@ -42,7 +49,12 @@
                 settings
             </span> Productos</li>
     </menu>
+    <!-- <button id="btnSaludar" class="boton">SALUDAR</button>
+    <button id="btnFondo" onclick="cambiarFondo()" class="boton">CAMBIAR FONDO</button>
+     -->
     <div class="contenedor">
+        
+
         <div class="card">
             <img class="imagen" src="img/mantenimiento-portatil-pc_2.jpg" alt="" class="imagen">
             <!-- <div class="imagen"></div> -->
@@ -90,6 +102,13 @@
             </div>
         </div>
     </div>
+
+
+     <!-- ESTO ES CÖDIGO JS -->
+    <script src="funciones.js">
+
+        
+    </script>
 </body>
 
 </html>
