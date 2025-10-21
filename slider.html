@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .contenedor {
+            height: 500px;
+            width: 400%;
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 1s ease-in-out;
+        }
+
+        .imagen-slider {
+            height: 100%;
+            width: 100%;
+        }
+
+        .float-left {
+            font-size: 2rem;
+            z-index: 10;
+            left: 1rem;
+            top: 250px;
+            position: absolute;
+            background: none;
+            border: none;
+
+        }
+
+        .float-right {
+            font-size: 2rem;
+            right: 1rem;
+            top: 250px;
+            z-index: 10;
+            position: absolute;
+            background: none;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contenedor" class="contenedor">
+        <img class="imagen-slider" src="img-slider/ferrari.jpg" alt="">
+        <img class="imagen-slider" src="img-slider/chev-camaro.jpg" alt="">
+        <img class="imagen-slider" src="img-slider/luxury-car.jpg" alt="">
+        <img class="imagen-slider" src="img-slider/porsche.jpg" alt="">
+    </div>
+
+    <button onclick="desplazarIzquierda()" class="float-left">◀️</button>
+    <button onclick="desplazarDerecha()" class="float-right">▶️</button>
+
+
+
+    <script>
+        const contenedor = document.getElementById("contenedor");
+        let = posicion = 0;
+        let totalSlides = 4;
+        let duracion = 3000;
+
+        function desplazarDerecha() {
+
+            posicion = posicion + 1;
+
+            if (posicion >= totalSlides) {
+                posicion = 0;
+            }
+
+            contenedor.style.left = `-${posicion * 100}%`;
+        }
+
+        function desplazarIzquierda() {
+            posicion = posicion - 1;
+
+            if (posicion < 0) {
+                posicion = 3;
+            }
+
+            contenedor.style.left = `-${posicion * 100}%`;
+        }
+
+        function moverSlider() {
+            posicion = posicion + 1;
+            if (posicion >= totalSlides) {
+                posicion = 0;
+            }
+            contenedor.style.left = `-${posicion * 100}%`;
+            setTimeout(moverSlider, duracion);
+        }
+
+        moverSlider();
+
+        
+
+    </script>
+</body>
+
+</html>
