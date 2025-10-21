@@ -10,10 +10,11 @@
         .contenedor {
             border: solid black 2px;
             width: 70%;
-            height: 300px;
+            height: 400px;
             margin: 3rem auto;
             display: flex;
             gap: 1rem;
+            position: relative;
         }
 
         .cuadro {
@@ -21,6 +22,16 @@
             width: 150px;
             background-color: blue;
         }
+
+        .cuadro-rojo {
+            height: 150px;
+            width: 150px;
+            background-color: red;
+            position: absolute;
+            z-index: 10;
+        }
+
+
 
         .contenedor-botones {
 
@@ -31,11 +42,32 @@
             gap: 1rem;
         }
 
+        .top-left {
+            top: 0;
+            left: 0;
+        }
+
+        .top-right {
+            top: 0;
+            right: 0;
+        }
+
+        .bottom-rigth {
+            bottom: 0;
+            right: 0;
+        }
+
+        .bottom-left {
+            bottom: 0;
+            left: 0;
+        }
+
 
         .boton {
             background: black;
             color: azure;
             padding: 1rem;
+            font-size: 2rem;
         }
 
         .enviar-final {
@@ -57,6 +89,13 @@
             justify-content: space-between;
             transition: all 1s ease-in;
         }
+
+        .girar {
+            height: 700px;
+            width: 300px;
+            flex-direction: column;
+            transition: all 2s ease-in-out;
+        }
     </style>
 </head>
 <div id="contenedor" class="contenedor">
@@ -64,7 +103,16 @@
     <div class="cuadro"></div>
     <div class="cuadro"></div>
     <div class="cuadro"></div>
+    <div id="cuadro-rojo" class="cuadro-rojo otra-clase"></div>
 </div>
+
+<div class="contenedor-botones">
+    <button id="top-left" onclick="subirIzquierda()" class="boton">↖️</button>
+    <button id="top-right" onclick="subirDerecha()" class="boton">↗️</button>
+    <button id="bottom-rigth" onclick="bajarDerecha()" class="boton">↘️</button>
+    <button id="bottom-left" onclick="bajarIzquierda()" class="boton">↙️</button>
+</div>
+
 
 
 <div class="contenedor-botones">
@@ -72,14 +120,48 @@
     <button id="btn-inicio" class="boton">ENVIAR AL INICIO</button>
     <button id="btn-separar" class="boton">SEPARAR CUADROS</button>
     <button id="btn-juntar" class="boton">JUNTAR CUADROS</button>
+    <button id="btn-girar" class="boton">GIRAR</button>
 </div>
 
 
 <script>
+
+    const cuadroRojo = document.getElementById("cuadro-rojo");
+
+    function subirIzquierda() {
+        cuadroRojo.classList.add("top-left");
+        cuadroRojo.classList.remove("top-right");
+        cuadroRojo.classList.remove("bottom-right");
+        cuadroRojo.classList.remove("bottom-left");
+    }
+
+    function subirDerecha() {
+        cuadroRojo.classList.add("top-right");
+        cuadroRojo.classList.remove("top-left");
+        cuadroRojo.classList.remove("bottom-right");
+        cuadroRojo.classList.remove("bottom-left");
+    }
+
+    function bajarDerecha() {
+        cuadroRojo.classList.add("bottom-rigth");
+        cuadroRojo.classList.remove("top-right");
+        cuadroRojo.classList.remove("top-left");
+        cuadroRojo.classList.remove("bottom-left");
+    }
+    function bajarIzquierda() {
+        cuadroRojo.classList.remove("top-right");
+        cuadroRojo.classList.remove("top-left");
+        cuadroRojo.classList.remove("bottom-rigth");
+        cuadroRojo.classList.add("bottom-left");
+    }
+
+
+
     const botonFinal = document.getElementById("btn-final");
     const botonInicio = document.getElementById("btn-inicio");
     const botonSeparar = document.getElementById("btn-separar");
     const botonJuntar = document.getElementById("btn-juntar");
+
 
     const contenedor = document.getElementById("contenedor");
 
@@ -110,6 +192,12 @@
         contenedor.classList.remove("enviar-final");
         contenedor.classList.remove("separar-cuadros");
         contenedor.classList.add("juntar-cuadros");
+    });
+
+    const botonGirar = document.getElementById("btn-girar");
+
+    botonGirar.addEventListener("click", function () {
+        contenedor.classList.toggle("girar");
     });
 
 
