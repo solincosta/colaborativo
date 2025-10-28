@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos/bootstrap.min.css">
+
+    <style>
+        .contenedor {
+            width: 60%;
+            margin: 3rem auto;
+            border: solid rgb(27, 27, 27) 1px;
+            border-radius: 1rem;
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar-dark bg-dark navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">LOGO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="bootstrap.html">INICIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registro.html">REGISTRESE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">VENTAS</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Digite busqueda" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <section class="contenedor">
+        <div>
+
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Digite nombre completo</label>
+                <input id="nombre" type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="programa">Seleccione un programa</label>
+                <select id="programa" class="form-select" aria-label="Default select example">
+                    <option value="0" selected>Eliga un programa...</option>
+                    <option value="1">Desarrollo de Software</option>
+                    <option value="2">Enfermería</option>
+                    <option value="3">Contabilidad</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="correo" class="form-label">Digite correo</label>
+                <input id="correo" type="email" class="form-control" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">Este será tu usuario en el sistema</div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Clave</label>
+                <input id="password" type="password" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="password2" class="form-label">Repita la Clave</label>
+                <input id="password2" type="password" class="form-control">
+            </div>
+            <div class="mb-3 form-check">
+                <input id="acepto" type="checkbox" class="form-check-input">
+                <label class="form-check-label" for="exampleCheck1">Estoy de acuerdo con los terminos</label>
+            </div>
+            <!-- <button class="btn btn-primary" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                <span role="status">Loading...</span>
+            </button> -->
+            <button type="submit" onclick="registrar()" class="btn btn-primary mb-3">Registrar</button>
+        </div>
+
+        <div id="contenedor-spinners" class="contenedor-spinners">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+
+
+        <div id="success" class="alert alert-success" style="display: none;" role="alert">
+            Mensaje de OK
+        </div>
+        <div id="danger" class="alert alert-danger" style="display: none;" role="alert">
+            Mensaje de error
+        </div>
+        <div id="warm" class="alert alert-warning" style="display: none;" role="alert">
+            Mensaje de alerta
+        </div>
+    </section>
+
+
+
+    <script>
+        const success = document.getElementById("success");
+        const warm = document.getElementById("warm");
+        const spinners = document.getElementById("contenedor-spinners");
+        spinners.style.display = 'none';
+
+        let mensaje = "";
+
+        function registrar() {
+            let nombre = document.getElementById("nombre").value;
+            let programa = document.getElementById("programa").value;
+            let correo = document.getElementById("correo").value;
+            let password = document.getElementById("password").value;
+            let password2 = document.getElementById("password2").value;
+            let acepto = document.getElementById("acepto").checked;
+
+            if (nombre == "") {
+                mensaje = "DIGITE UN NOMBRE VÁLIDO";
+                warm.style.display = 'block';
+                warm.innerHTML = mensaje;
+                success.style.display = 'none';
+                return;
+            }
+
+            if (programa == "0") {
+                mensaje = "ELIJA UN PROGRAMA VÁLIDO";
+                warm.style.display = 'block';
+                warm.innerHTML = mensaje;
+                success.style.display = 'none';
+                return;
+            }
+
+            if (correo.includes(".com") == false || correo.includes("@") == false) {
+                mensaje = "EL CORREO DIGITADO ES INVALIDO";
+                warm.style.display = 'block';
+                warm.innerHTML = mensaje;
+                success.style.display = 'none';
+                return;
+            }
+
+            if (password == "") {
+                mensaje = "DIGITE UNA CONTRASEÑA VÁLIDA";
+                warm.style.display = 'block';
+                warm.innerHTML = mensaje;
+                success.style.display = 'none';
+                return;
+            }
+
+            if (password != password2) {
+                mensaje = "LAS CONTRASEÑAS NO CONINCIDEN";
+                warm.style.display = 'block';
+                warm.innerHTML = mensaje;
+                success.style.display = 'none';
+                return;
+            }
+
+            if (acepto != true) {
+                mensaje = "DEBE ACEPTAR LOS TERMINOS";
+                warm.style.display = 'block';
+                warm.innerHTML = mensaje;
+                success.style.display = 'none';
+                return;
+            }
+
+            spinners.style.display = 'block';
+
+            mensaje = "USUARIO CREADO";
+            success.style.display = 'block';
+            success.innerHTML = mensaje;
+            warm.style.display = 'none';
+
+            setTimeout(() => {
+
+                localStorage.setItem("usuario", correo);
+                localStorage.setItem("pass", password);
+
+                spinners.style.display = 'none';
+                window.location.href = "bootstrap.html";
+            }, 4000);
+
+            //alert(correo);
+        }
+    </script>
+
+
+
+</body>
+
+</html>
