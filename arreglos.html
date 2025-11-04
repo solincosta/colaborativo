@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+    <style>
+        .tabla {
+            width: 50%;
+            margin: auto;
+        }
+
+        .formulario {
+            width: 50%;
+            margin: auto;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 1rem;
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="formulario">
+        <div class="mb-3">
+            <label for="txtId" class="form-label">Id</label>
+            <input type="text" class="form-control" id="txtId">
+        </div>
+        <div class="mb-3">
+            <label for="txtNombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="txtNombre">
+        </div>
+        <div class="mb-3">
+            <label for="txtPrecio" class="form-label">Precio</label>
+            <input type="text" class="form-control" id="txtPrecio">
+        </div>
+        <button type="button" onclick="guardarFruta()" class="btn btn-primary">Guardar</button>
+    </div>
+
+    <!-- ESTO ES UNA TABLA -->
+    <table class="table table-striped tabla">
+        <!-- ESTA ES LA CABECERA DE LA TABLA -->
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <!-- ESTE ES EL CUERPO DE LA TABLA -->
+        <tbody id="cuerpo-tabla">
+            <!-- quiero que las frutas se carguen aquí -->
+        </tbody>
+    </table>
+
+
+
+    <script>
+        const cuerpoTabla = document.getElementById('cuerpo-tabla');
+        let frutas = [
+             { id: 1, nombre: 'Piña', precio: 2500 },
+        ];
+
+        function mostrarTabla() {
+            for (fruta of frutas) {
+                cuerpoTabla.innerHTML += ` 
+           <tr>
+                <td>${fruta.id}</td>
+                <td>${fruta.nombre}</td>
+                <td>${fruta.precio}</td>
+            </tr>
+            `;
+            }
+        }
+
+        function guardarFruta(){
+            let codigo = document.getElementById('txtId').value;
+            let nombreFruta = document.getElementById('txtNombre').value;
+            let precioFruta = document.getElementById('txtPrecio').value;    
+            
+            let fruta = {
+                id: codigo,
+                nombre: nombreFruta,
+                precio: precioFruta
+            };
+
+            frutas.push(fruta);
+            cuerpoTabla.innerHTML = '';
+            mostrarTabla();
+        }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

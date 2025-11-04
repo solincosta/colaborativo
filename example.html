@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <select name="lista" id="list-op">
+        <option value="">--Seleccione una opción--</option>
+    </select>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Las filas se agregarán aquí dinámicamente -->
+
+        </tbody>
+    </table>
+
+    <script>
+        const opciones = [
+            { id: 1, nombre: "UNO" },
+            { id: 2, nombre: "DOS" },
+            { id: 3, nombre: "TRES" },
+        ];
+
+        function cargarTabla() {
+            const tbody = document.getElementById("table-body");
+            for (op of opciones) {
+                const row = document.createElement("tr");
+                row.innerHTML = `<td>${op.id}</td>
+                                <td>${op.nombre}</td>`;
+                tbody.appendChild(row);
+            }
+        }
+
+        function cargarOpciones() {
+            const select = document.getElementById("list-op");
+            for (op of opciones) {
+                const optionElement = document.createElement("option");
+                optionElement.value = op.id;
+                optionElement.textContent = op.nombre;
+                select.appendChild(optionElement);
+            }
+        }
+
+        cargarOpciones();
+        cargarTabla();
+    </script>
+</body>
+
+</html>
