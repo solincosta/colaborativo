@@ -42,6 +42,10 @@
             <label for="txtPrecio" class="form-label">Precio</label>
             <input type="text" class="form-control" id="txtPrecio">
         </div>
+        <select id="programas" class="form-select" aria-label="Default select example">
+            <option selected>Seleccionar un programa</option>
+        </select>
+
         <button type="button" onclick="guardarFruta()" class="btn btn-primary">Guardar</button>
     </div>
 
@@ -65,14 +69,30 @@
 
     <script>
         const cuerpoTabla = document.getElementById('cuerpo-tabla');
-        let frutas = [
-             { id: 1, nombre: 'Piña', precio: 2500 },
-        ];
+        const selectProgramas = document.getElementById('programas');
+
+        let frutas = [];
+
+        function cargarProgramas() {
+            
+            let programas = [
+                {id: 1, nombre: 'Desarrollo'},
+                {id: 2, nombre: 'Diseño'},
+                {id: 3, nombre: 'Belleza'},
+            ];
+
+            for (let programa of programas) {
+                selectProgramas.innerHTML += `
+                    <option value="${programa.id}">${programa.nombre}</option>`;  
+            }
+        }
+
+        cargarProgramas();
 
         function mostrarTabla() {
             for (fruta of frutas) {
                 cuerpoTabla.innerHTML += ` 
-           <tr>
+                <tr>
                 <td>${fruta.id}</td>
                 <td>${fruta.nombre}</td>
                 <td>${fruta.precio}</td>
@@ -81,11 +101,11 @@
             }
         }
 
-        function guardarFruta(){
+        function guardarFruta() {
             let codigo = document.getElementById('txtId').value;
             let nombreFruta = document.getElementById('txtNombre').value;
-            let precioFruta = document.getElementById('txtPrecio').value;    
-            
+            let precioFruta = document.getElementById('txtPrecio').value;
+
             let fruta = {
                 id: codigo,
                 nombre: nombreFruta,

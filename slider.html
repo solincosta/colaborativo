@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
 
     <style>
         * {
@@ -59,25 +62,35 @@
 
 <body>
     <div id="contenedor" class="contenedor">
-        <img class="imagen-slider" src="img-slider/ferrari.jpg" alt="">
+        <!-- <img class="imagen-slider" src="img-slider/ferrari.jpg" alt="">
         <img class="imagen-slider" src="img-slider/chev-camaro.jpg" alt="">
         <img class="imagen-slider" src="img-slider/luxury-car.jpg" alt="">
-        <img class="imagen-slider" src="img-slider/porsche.jpg" alt="">
+        <img class="imagen-slider" src="img-slider/porsche.jpg" alt=""> -->
     </div>
 
     <button onclick="desplazarIzquierda()" class="float-left">◀️</button>
     <button onclick="desplazarDerecha()" class="float-right">▶️</button>
 
+    <table class="table table-striped">
+        <thead>
+            <td>Nombre</td>
+            <td>Edad</td>
+            <td>Dirección</td>
+        </thead>
+        <tbody id="table-body">
+            <!-- AQUÏ LO CARGO EN JS -->
+        </tbody>
+    </table>
+
     <script>
         const contenedor = document.getElementById("contenedor");
-        let = posicion = 0;
+
+        let posicion = 0;
         let totalSlides = 4;
         let duracion = 3000;
 
         function desplazarDerecha() {
-
             posicion = posicion + 1;
-
             if (posicion >= totalSlides) {
                 posicion = 0;
             }
@@ -86,6 +99,7 @@
         }
 
         function desplazarIzquierda() {
+
             posicion = posicion - 1;
 
             if (posicion < 0) {
@@ -100,13 +114,82 @@
             if (posicion >= totalSlides) {
                 posicion = 0;
             }
+
             contenedor.style.left = `-${posicion * 100}%`;
+
             setTimeout(moverSlider, duracion);
         }
 
         moverSlider();
 
-        
+        let estudiantes = [
+            {
+                nombre: "JOSE",
+                edad: 25,
+                direccion: "GAIRA"
+            },
+            {
+                nombre: "FERNANDO",
+                edad: 19,
+                direccion: "PALOMINO"
+            },
+            {
+                nombre: "JUAN",
+                edad: 20,
+                direccion: "MANZANARES"
+            },
+            {
+                nombre: "JEAN",
+                edad: 22,
+                direccion: "PALOMINO"
+            },
+            {
+                nombre: "SEBASTIAN",
+                edad: 35,
+                direccion: "JARDIN"
+            }];
+
+        const tabla = document.getElementById("table-body");
+        //FOR CON INDICES (j)
+        // for (let j = 0; j < estudiantes.length; j++) {
+        //     if (estudiantes[j].edad >= 20) {
+        //         console.log("IMPRIMIENDO EL ESTUDIANTE N° " + (j + 1));
+        //         console.log(estudiantes[j]);
+        //     }
+        // }
+
+        //FOR of
+
+        let rutas = [];
+
+        // fetch("https://cobuses.com.co/APIV2/model/parcial.php?dato=getallvuelos")
+        //     .then(response => response.json())
+        //     .then(data => ruta = data)
+        //     .catch(error => console.error('Error:', error));
+
+        async function getDatos() {
+            try {
+                const res = await fetch("https://cobuses.com.co/APIV2/model/parcial.php?dato=getallvuelos");
+                const data = await res.json();
+                console.log(data);
+
+                for (dato of data) {
+                    tabla.innerHTML += `
+                <tr>
+                <td>${dato.id}</td>
+                <td>${dato.millasacum}</td>
+                <td>${dato.ruta}</td>
+            </tr>
+            `;
+                }
+            } catch (error) {
+                alert('No pude conectarme a la API');
+            }
+        }
+
+        getDatos();
+
+
 
     </script>
 </body>
