@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .contenedor-productos {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 1rem;
+            width: 75%;
+            margin: 0 auto;
+        }
+
+        .card {
+            width: 230px;
+            height: 380px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 10px;
+        }
+
+        .imagen {
+            height: 50%;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .nombre {
+            height: 15%;
+
+            padding: 5px 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: #01962D;
+        }
+
+        .precio {
+            height: 7%;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+
+            padding: 0 10px;
+
+
+        }
+
+        .rating {
+            height: 8%;
+            padding: 0 10px;
+        }
+
+        .compra {
+            height: 12%;
+            background: #01962D;
+            color: white;
+            width: 90%;
+            margin: 0 5%;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="contenedor-productos" class="contenedor-productos">
+
+    </div>
+
+
+    <script>
+
+        const contenedorProductos = document.getElementById("contenedor-productos");
+        //Esta funcion obtiene los datos de una API
+        //Esto es una funcion asincrona -> Debe esperar a que se complete la peticion
+        async function getDatos() {
+            try {
+                let url = "https://cobuses.com.co/APIV2/model/productos.php?dato=getallproductos";
+                const res = await fetch(url);
+                const data = await res.json();
+
+                for (producto of data) {
+                    let estrellas = "";
+
+                    for (let i = 0; i < producto.raiting; i++) {
+                        estrellas += "⭐️";
+                    }
+
+                    contenedorProductos.innerHTML += `
+                        <div class="card">
+                            <img src="${producto.imagen}" alt="" class="imagen">
+                            <div class="nombre">
+                              ${producto.nombre}
+                            </div>
+                            <div class="precio">
+                            ${pesoColombia(producto.precio)}
+                            </div>
+                            <div class="rating">
+                                ${estrellas}
+                            </div>
+                            <button class="compra">COMPRAR</button>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                alert('No pude conectarme a la API');
+            }
+        }
+
+
+        function pesoColombia(numero) {
+            const formatter = new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+                minimumFractionDigits: 0 
+            });
+            return formatter.format(numero);
+        }
+        
+        getDatos();
+    </script>
+</body>
+
+</html>
